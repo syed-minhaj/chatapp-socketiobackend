@@ -1,6 +1,6 @@
 const io = require('socket.io')(3001, {
     cors: {
-        origin: "http://localhost:3000",
+        origin: "https://chatapp-seven-hazel.vercel.app/",
         methods: ["GET", "POST"],
     },
 });
@@ -28,25 +28,3 @@ io.on('connection', (socket) => {
     });
 });
 console.log('Server listening on port 3001');
-// when using middleware `hostname` and `port` must be provided below
-// const app = next({ dev, hostname, port });
-// const handler = app.getRequestHandler();
-
-// app.prepare().then(() => {
-//   const httpServer = createServer(handler);
-
-//   const io = new Server(httpServer);
-
-//   io.on("connection", (socket) => {
-//     // ...
-//   });
-
-//   httpServer
-//     .once("error", (err) => {
-//       console.error(err);
-//       process.exit(1);
-//     })
-//     .listen(port, () => {
-//       console.log(`> Ready on http://${hostname}:${port}`);
-//     });
-// });
