@@ -16,10 +16,20 @@ io.on('connection', (socket) => {
 
         // Emit the event with the message details
         socket.to(channelName).emit(eventName, {
+            id: message.id,
             message: message.message,
             userID: message.userID,
             userName: message.userName,
             
+        });
+    });
+    socket.on('deleteMessage', (message) => {
+        const channelName = `room-${message.roomID}`;
+        const eventName = 'delete-message';
+
+        // Emit the event with the message details
+        socket.to(channelName).emit(eventName, {
+            id: message.id,
         });
     });
 
